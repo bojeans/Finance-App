@@ -15,9 +15,8 @@ FROM node:${NODE_VERSION}-alpine as base
 # Set working directory for all build stages.
 WORKDIR /usr/src/app
 
-
 ################################################################################
-# Create a stage for installing production dependecies.
+# Create a stage for installing production dependencies.
 FROM base as deps
 
 # Download dependencies as a separate step to take advantage of Docker's caching.
@@ -64,8 +63,8 @@ COPY package.json .
 COPY --from=deps /usr/src/app/node_modules ./node_modules
 COPY --from=build /usr/src/app/.next ./.next
 
-
-# Expose the port that the application listens on.
+# Expose the port that the application listens on. Make sure this port
+# matches the port in your docker-compose.yml file.
 EXPOSE 3000
 
 # Run the application.

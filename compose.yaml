@@ -5,8 +5,9 @@ services:
       dockerfile: Dockerfile.dev
     environment:
       NODE_ENV: development
+      PORT: 3001  # Make sure the port is consistent
     ports:
-      - 3000:3000
+      - 3001:3001  # Map the external port to the new internal port
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
@@ -17,6 +18,7 @@ services:
     image: postgres
     restart: always
     environment:
+      POSTGRES_USER: postgres   # Set the default user to postgres
       POSTGRES_DB: example
       POSTGRES_PASSWORD_FILE: /run/secrets/db-password
     secrets:
@@ -26,7 +28,7 @@ services:
     expose:
       - 5432
     healthcheck:
-      test: ["CMD", "pg_isready"]
+      test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "postgres" ]
       interval: 10s
       timeout: 5s
       retries: 5
