@@ -1,24 +1,21 @@
-# syntax=docker/dockerfile:1
+# Development Dockerfile
 
-# Use node image for base image.
-FROM node:21.6.0-alpine
+FROM node:21-alpine AS base
 
-# Set working directory.
 WORKDIR /usr/src/app
 
-# Install dependencies.
 COPY package*.json ./
 RUN npm install
 
-# Copy the rest of the source files.
 COPY . .
 
-# Set environment variable for development.
-ENV NODE_ENV=development
-ENV PORT=3001  
+# Ensure tsconfig.json has correct jsx setting
+RUN sed -i 's/"jsx": "preserve"/"jsx": "react-jsx"/' tsconfig.json
 
-# Expose port 3001.
+# Adjust permissions if needed
+RUN chown -R node:node /usr/src/app
+USER node
+
 EXPOSE 3001
 
-# Start the Next.js development server.
 CMD ["npm", "run", "dev"]
