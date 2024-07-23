@@ -14,7 +14,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "isolatedModules": true,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "incremental": true,
     "plugins": [
       {
@@ -34,7 +34,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts"
   ],
- "exclude": [
+  "exclude": [
     "node_modules",
     ".next"
   ]
