@@ -32,8 +32,8 @@ jobs:
         with:
           context: .
           file: Dockerfile
-          push: false
-          tags: ${{ github.repository }}:latest
+          push: true
+          tags: bojeans/finance-app:latest
 
       - name: Run tests
         run: |
