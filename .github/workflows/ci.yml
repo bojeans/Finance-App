@@ -43,8 +43,8 @@ jobs:
 
       - name: Run tests
         run: |
-          docker run --rm ${{ github.repository }}:latest npm test
+          docker run --rm bojeans/finance-app:latest npm test
 
       - name: Lint code
         run: |
-          docker run --rm ${{ github.repository }}:latest npm run lint
+          docker run --rm bojeans/finance-app:latest npm run lint
