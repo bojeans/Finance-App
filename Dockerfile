@@ -6,6 +6,7 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 RUN npm install --only=production
+RUN npm install --save-dev eslint @jest/types
 
 COPY . .
 

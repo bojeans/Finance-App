@@ -6,7 +6,7 @@ const config: Config.InitialOptions = {
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
   transform: {
     "^.+\\.tsx?$": ["ts-jest", { tsconfig: "tsconfig.jest.json" }],
-    "^.+\\.jsx?$": "babel-jest",
+    "^.+\\.jsx?$": ["ts-jest", { tsconfig: "tsconfig.jest.json" }],
   },
   moduleNameMapper: {
     "\\.(css|less|scss|sass)$": "identity-obj-proxy",
