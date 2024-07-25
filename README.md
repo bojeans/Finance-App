@@ -29,6 +29,7 @@ This app is still in development and subject to change. Still deciding if I'll h
 
 ```docker compose up --build```
 - If you don't have docker or don't wish to use it, you can ```npm install``` followed by ```npm run dev```
+- Double check the ports, at present I have docker image running on 3000 but if you're not using docker than 3001 (will streamline)
 
 ## Testing
 ```npm test``` (you may also notice a testing service in docker when you spin it up :) 
