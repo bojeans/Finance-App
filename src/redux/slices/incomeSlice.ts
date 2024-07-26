@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export interface Income {
+export interface IncomeEntry {
   id: number;
   amount: number;
   date: string;
@@ -8,7 +8,7 @@ export interface Income {
 }
 
 interface IncomeState {
-  incomes: Income[];
+  incomes: IncomeEntry[];
 }
 
 const initialState: IncomeState = {
@@ -19,13 +19,13 @@ const incomeSlice = createSlice({
   name: "income",
   initialState,
   reducers: {
-    addIncome: (state, action: PayloadAction<Income>) => {
+    addIncome: (state, action: PayloadAction<IncomeEntry>) => {
       state.incomes.push(action.payload);
     },
-    setIncomes: (state, action: PayloadAction<Income[]>) => {
+    setIncomes: (state, action: PayloadAction<IncomeEntry[]>) => {
       state.incomes = action.payload;
     },
-    updateIncome: (state, action: PayloadAction<Income>) => {
+    updateIncome: (state, action: PayloadAction<IncomeEntry>) => {
       const index = state.incomes.findIndex(
         (income) => income.id === action.payload.id
       );
@@ -44,4 +44,4 @@ const incomeSlice = createSlice({
 export const { addIncome, setIncomes, updateIncome, deleteIncome } =
   incomeSlice.actions;
 export default incomeSlice.reducer;
-export type { Income, IncomeState };
+export type { IncomeEntry as Income, IncomeState };
