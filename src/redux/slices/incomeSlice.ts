@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface IncomeState {
-  income: number;
+  amount: number;
   date: string;
   type: string;
 }
