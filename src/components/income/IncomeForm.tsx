@@ -12,7 +12,14 @@ export default function IncomeForm() {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    dispatch(addIncome({ amount: parseFloat(amount), date, type }));
+    dispatch(
+      addIncome({
+        amount: parseFloat(amount),
+        date,
+        type,
+        id: 0,
+      })
+    );
   };
 
   return (

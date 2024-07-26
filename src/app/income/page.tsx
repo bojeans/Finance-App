@@ -1,5 +1,5 @@
 import ReduxProvider from "@/components/ReduxProvider";
-import IncomeForm from "../income/IncomeForm";
+import IncomeForm from "@/components/income/IncomeForm";
 import IncomeList from "@/components/income/IncomeList";
 
 export default async function IncomePage() {
