@@ -3,6 +3,8 @@ import IncomeForm from "../income/IncomeForm";
 import IncomeList from "../income/IncomeList";
 
 export default async function IncomePage() {
+  const res = await fetch("/income");
+  const data = await res.json();
   return (
     <ReduxProvider>
       <div>
