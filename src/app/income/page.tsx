@@ -1,6 +1,6 @@
 import ReduxProvider from "@/components/ReduxProvider";
 import IncomeForm from "../income/IncomeForm";
-import IncomeList from "../income/IncomeList";
+import IncomeList from "@/components/income/IncomeList";
 
 export default async function IncomePage() {
   const res = await fetch("/income");
