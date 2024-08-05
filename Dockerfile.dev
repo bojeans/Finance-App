@@ -20,6 +20,8 @@ USER node
 # Generate Prisma client
 RUN npx prisma generate
 
+# Set environment variable for Docker development
+ENV NEXT_PUBLIC_API_URL=http://localhost:3001
 
 EXPOSE 3001
 
