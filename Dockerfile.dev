@@ -16,6 +16,7 @@ RUN sed -i 's/"jsx": "preserve"/"jsx": "react-jsx"/' tsconfig.json
 # Adjust permissions if needed
 RUN chown -R node:node /usr/src/app
 USER node
+RUN npx prisma generate
 
 EXPOSE 3001
 
