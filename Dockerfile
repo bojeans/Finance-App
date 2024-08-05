@@ -17,6 +17,9 @@ RUN sed -i 's/"jsx": "preserve"/"jsx": "react-jsx"/' tsconfig.json
 RUN chown -R node:node /usr/src/app
 USER node
 
+# Generate Prisma client
+RUN npx prisma generate
+
 # Build and run application
 RUN npm run build
 
