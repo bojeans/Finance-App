@@ -9,10 +9,14 @@ export interface IncomeEntry {
 
 interface IncomeState {
   incomes: IncomeEntry[];
+  loading: boolean;
+  error: string | null;
 }
 
 const initialState: IncomeState = {
   incomes: [],
+  loading: false,
+  error: null,
 };
 
 const incomeSlice = createSlice({
